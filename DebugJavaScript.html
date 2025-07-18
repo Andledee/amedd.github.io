@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+</head>
+<body>
+    <h1>Mortgage Calculator</h1>
+    <form id="mortgageForm">
+        <table>
+            <tr>
+                <td><label for="principal">Loan Amount ($):</label></td>
+                <td><input type="number" id="principal" required></td>
+            </tr>
+            <tr>
+                <td><label for="rate">Interest Rate (%):</label></td>
+                <td><input type="number" id="rate" step="0.01" required></td>
+            </tr>
+            <tr>
+                <td><label for="years">Loan Term (years):</label></td>
+                <td><input type="number" id="years" required></td> 
+                <!--Needed 2nd set of quotation marks on years-->
+            </tr>
+        </table>
+        <button type="button" onclick="calculateMortgage()">Calculate</button>
+    </form>
+    <p id="result"></p>
+    
+    <script>
+
+        function calculateMortgage() {
+            // Get the initial amount from the principal box
+            const principal = parseFloat(document.getElementById("principal").value); // Fixed typo: should be "principal"
+            //Also, changed to parseFloat to ensure we get a number
+
+            //const rate; was missing initializer in const declaration
+            // Fixed: const rate should be initialized immediately
+            // update rate from the box
+            const rate = parseFloat(document.getElementById("rate").value) / 100; // Convert percentage to decimal.
+            // Also, changed to parseFloat to ensure we get a number
+            // get the years to calculate
+            const years = parseFloat(document.getElementById("years").value);
+            // Also, changed to parseFloat to ensure we get a number
+            // Call the power funtion, pow, from Math
+            if (rate === 0) { // If the rate is 0, we can calculate the monthly payment directly
+                const monthlyPayment = principal / (years * 12); 
+                document.getElementById("result").innerText = `Your monthly payment is $${monthlyPayment.toFixed(2)}`;
+                return;
+            }
+            //const monthlyRate = Math.pow(1 + rate, years * 12); 
+            //Math.pw doesn't exist, so we use Math.pow
+            //However, we need to calculate the monthly rate. This is done by dividing the annual rate by 12.
+            //This was checked via console.log statements, checking variables at each step.
+            //Like this:
+            console.log("Principal:", principal);
+            console.log("Rate:", rate);
+            console.log("Years:", years);
+            //Rate is annual, so we need to convert it to monthly.
+            //So here's the fixed version:
+            const monthlyRate = rate / 12; // Convert annual rate to monthly rate
+            console.log("Monthly Rate (Math.pow result):", monthlyRate);
+
+            const numberOfPayments = years * 12; // Total number of monthly payments
+            console.log("Number of Payments:", numberOfPayments);
+
+            const compoundRate = Math.pow(1 + monthlyRate, numberOfPayments); //Compound interest over span of the loan
+            console.log("Compound Rate (Math.pow result):", compoundRate);
+
+            const monthlyPayment = (principal * monthlyRate * compoundRate) / (compoundRate - 1); // Monthly payment formula
+            console.log("Monthly Payment:", monthlyPayment);
+
+            document.getElementById("result").innerText = `Your monthly payment is $${monthlyPayment.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
