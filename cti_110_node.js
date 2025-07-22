@@ -8,7 +8,7 @@ const path = require('path');
 const { Pool } = require('pg');
 
 // Set up database connection
-const connectionString = `postgres://postgres:CTI_110_WakeTech@localhost/Gradebook`;
+const connectionString = `postgres://postgres:Obi1Kenob1@localhost/Gradebook`;
 const pool = new Pool({ connectionString: connectionString });
 
 // Serve the gradebook page at the root route BEFORE static middleware
