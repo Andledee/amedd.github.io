@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Solutions - Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="header">
+        <img src="images/TaskFlow_Solutions_Logo.png" alt="TaskFlow Solutions Logo">
+        <div class="header-text">
+            <h1>Task Manager</h1>
+        </div>
+    </div>
+
+    <div id="main-content">
+
+        <!-- Add Task Form -->
+        <section id="add-task-section">
+            <div id="task-form">
+                <h2>Add New Task</h2>
+
+                <div class="form-row">
+                    <label for="task-input">Task Name</label>
+                    <input type="text" id="task-input" placeholder="Enter task name..." />
+                </div>
+
+                <div class="form-row">
+                    <label for="priority-select">Priority</label>
+                    <select id="priority-select">
+                        <option value="High">High</option>
+                        <option value="Medium" selected>Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+
+                <div class="form-row checkboxes">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="important-checkbox" />
+                        <span>Mark as Important</span>
+                    </label>
+                </div>
+
+                <div class="form-row">
+                    <label for="task-date">Due Date</label>
+                    <input type="date" id="task-date" />
+                </div>
+
+                <button id="add-task-button">+ Add Task</button>
+            </div>
+        </section>
+
+        <!-- Task Table -->
+        <section id="task-table-section">
+            <table id="task-table">
+                <thead>
+                    <tr>
+                        <th>Task Name</th>
+                        <th>Priority</th>
+                        <th>Date Added</th>
+                        <th>Due Date</th>
+                        <th>Important</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="taskmanager">
+                    <!-- Tasks will be dynamically added here -->
+                </tbody>
+            </table>
+            <p id="empty-msg">No tasks yet. Add one above!</p>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
