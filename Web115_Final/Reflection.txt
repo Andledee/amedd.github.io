@@ -1,0 +1,9 @@
+There were plenty of tutorials and assistance to be found around the web for this project, but ultimately, I had to draw from my own knowledge from this class how to add 
+the features requested by the assignment. I also had to manipulate the DOM according to my GUI vision, making the task trickier and less straight-forward than a basic
+HTML and JS assignment. I'd say that was the trickiest part was implementing my know-hows to work with the CSS styling I had in mind while keeping to the assignment's
+requirements. I had to rewrite all three files a few times to get it to look and function how I wanted, and that may have been what took the longest. Although adding a
+task due date wasn't required, I thought it would be a good implementation, so I added some code to make the due date text red if it's after the due date. That took a bit
+of research and fiddling. 
+
+Overall, I found this to be a very fitting final project for WEB 115. At its base, it wasn't horribly challenging, but it had the propensity to become a challenge if
+you pushed yourself to make it so. I appreciate the leeway that was afforded in that regard. 
